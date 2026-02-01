@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDG USTO-MB | Quiz IT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="gdg">GDG</span>
+                    <span class="full-name">Google Developer Group</span>
+                    <span class="campus">On Campus - USTO-MB</span>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link home active">Home</a></li>
+                <li><a href="#about" class="nav-link about">About</a></li>
+                <li><a href="#services" class="nav-link services">Services</a></li>
+                <li><a href="#contact" class="nav-link contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pages -->
+    <main id="content">
+        <!-- Home Page (Quiz) -->
+        <section id="home" class="page active">
+            <div class="container">
+                <div class="quiz-intro">
+                    <h1><i class="fas fa-laptop-code"></i> Quiz des Branches IT</h1>
+                    <p>Testez vos connaissances en informatique avec GDG USTO-MB !</p>
+                </div>
+
+                <!-- Selection des branches -->
+                <div class="branches-section">
+                    <h2>Choisissez une branche :</h2>
+                    <div class="branches-grid" id="branchesGrid">
+                        <!-- Rempli par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div class="quiz-container hidden" id="quizContainer">
+                    <div class="quiz-header">
+                        <h2 id="branchTitle">Branche</h2>
+                        <div class="quiz-progress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <div class="question-count" id="questionCount">Question 1/5</div>
+                    </div>
+
+                    <div class="question-card">
+                        <h3 id="questionText">Question</h3>
+                        <div class="options" id="optionsContainer">
+                            <!-- Rempli par JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="feedback hidden" id="feedback">
+                        <!-- Feedback -->
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button id="prevBtn" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Précédent
+                        </button>
+                        <button id="skipBtn" class="btn btn-secondary">
+                            Passer <i class="fas fa-forward"></i>
+                        </button>
+                        <button id="nextBtn" class="btn btn-primary">
+                            Suivant <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button id="submitBtn" class="btn btn-success hidden">
+                            <i class="fas fa-chart-bar"></i> Voir Résultats
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container hidden" id="resultsContainer">
+                    <div class="results-card">
+                        <h2><i class="fas fa-trophy"></i> Résultats</h2>
+                        
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg width="160" height="160">
+                                    <circle class="bg-circle" cx="80" cy="80" r="70"></circle>
+                                    <circle class="progress-circle" cx="80" cy="80" r="70"></circle>
+                                    <text x="80" y="85" class="score-text">0%</text>
+                                </svg>
+                            </div>
+                            
+                            <div class="score-details">
+                                <h3 id="scoreMessage">Score</h3>
+                                <div class="stats">
+                                    <div class="stat correct">
+                                        <span class="stat-label">Correctes :</span>
+                                        <span class="stat-value" id="correctCount">0</span>/5
+                                    </div>
+                                    <div class="stat wrong">
+                                        <span class="stat-label">Fausses :</span>
+                                        <span class="stat-value" id="wrongCount">0</span>/5
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="restartBtn" class="btn btn-primary">
+                            <i class="fas fa-redo"></i> Nouveau Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i> À Propos de GDG USTO-MB</h2>
+                
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Notre Mission</h3>
+                        <p>Communauté d'étudiants passionnés par les technologies Google et le développement.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Communauté</h3>
+                        <p>Nous réunissons développeurs, designers et entrepreneurs pour apprendre ensemble.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Événements</h3>
+                        <p>Workshops, hackathons, conférences et sessions de networking régulières.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Formation</h3>
+                        <p>Ressources sur Android, Cloud, Machine Learning, Web Dev et plus encore.</p>
+                    </div>
+                </div>
+                
+                <div class="team-info">
+                    <h3><i class="fas fa-user-friends"></i> Notre Équipe</h3>
+                    <p>Étudiants bénévoles passionnés organisant événements et gérant la communauté.</p>
+                    <p><strong>Département Events & Logistics :</strong> Coordination des événements campus.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page -->
+        <section id="services" class="page">
+            <div class="container">
+                <h2><i class="fas fa-cogs"></i> Nos Services</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3><i class="fas fa-code"></i> Formations</h3>
+                        <ul>
+                            <li>Développement Web</li>
+                            <li>Mobile (Android/Flutter)</li>
+                            <li>Cloud Computing</li>
+                            <li>Machine Learning</li>
+                            <li>Cybersécurité</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Workshops</h3>
+                        <ul>
+                            <li>Sessions pratiques</li>
+                            <li>Projets collaboratifs</li>
+                            <li>Code labs guidés</li>
+                            <li>Pair programming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fas fa-trophy"></i> Événements</h3>
+                        <ul>
+                            <li>Hackathons</li>
+                            <li>Conférences experts</li>
+                            <li>Study Jams</li>
+                            <li>Networking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3><i class="fas fa-hands-helping"></i> Support</h3>
+                        <ul>
+                            <li>Mentorat individuel</li>
+                            <li>Aide aux projets</li>
+                            <li>Préparation entretiens</li>
+                            <li>Conseils carrière</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="container">
+                <h2><i class="fas fa-envelope"></i> Contactez-nous</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Restons connectés</h3>
+                        <p>Rejoignez notre communauté :</p>
+                        
+                        <div class="social-buttons">
+                            <a href="https://www.instagram.com/gdg_on_campus_usto_mb/" target="_blank" class="social-btn instagram">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                            
+                            <a href="https://www.linkedin.com/company/gdgscusto/" target="_blank" class="social-btn linkedin">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            
+                            <a href="https://www.facebook.com/GDGonCampusUSTOMB/" target="_blank" class="social-btn facebook">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </a>
+                            
+                            <a href="https://gdg.community.dev/gdg-on-campus-universite-des-sciences-et-de-la-technologie-doran-mohamed-boudiaf-ustomb-oran-algeria/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAPqxTZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaeb9qg2MT3IwvAVBUFAqRzq6y-grgZUHwP2WSFfTYTUzEm9afBRroSwppjDtw_aem_nId_dB5oQV3CquUglUA1pg" class="social-btn email gdg-link" target="_blank" rel="noopener noreferrer" aria-label="GDG Website">
+                                <i class="fab fa-google"></i> GDG Website
+                            </a>
+                        </div>
+                        
+                        <div class="discord-section">
+                            <h4><i class="fab fa-discord"></i> Rejoignez-nous sur Discord</h4>
+                            <p><strong><a href="https://discord.com/invite/qFBP79v958" target="_blank" rel="noopener noreferrer" class="discord-link">GDG USTO-MB</a></strong></p>
+                            <p>Discussions, annonces et événements de la communauté</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Envoyez un message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Votre nom" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" placeholder="Votre email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" placeholder="Sujet" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea placeholder="Votre message" rows="4" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Envoyer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="location">
+                    <h4><i class="fas fa-map-marker-alt"></i> Localisation</h4>
+                    <p>📍 <strong>Université des Sciences et de la Technologie d'Oran - USTO-MB</strong></p>
+                    <p>🏫 Usto, Bir El Jir, Oran, Algérie</p>
+                    <p class="location-note">✨ Rejoignez-nous pour des ateliers, événements & rencontres — tout le monde est bienvenu !</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h4>Réseaux</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/gdg_on_campus_usto_mb/" target="_blank" title="Instagram" aria-label="Instagram" class="footer-social-link instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/gdgscusto/" target="_blank" title="LinkedIn" aria-label="LinkedIn" class="footer-social-link linkedin">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://www.facebook.com/GDGonCampusUSTOMB/" target="_blank" title="Facebook" aria-label="Facebook" class="footer-social-link facebook">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a href="https://discord.com/invite/qFBP79v958" target="_blank" title="Discord" aria-label="Discord" class="footer-social-link discord">
+                        <i class="fab fa-discord" aria-hidden="true"></i>
+                        <span class="sr-only">Discord</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-center">
+                <h4>Navigation</h4>
+                <div class="footer-nav">
+                    <a href="#home" class="footer-link nav-link btn btn-secondary" aria-label="Go to Home">Home</a>
+                    <a href="#about" class="footer-link nav-link btn btn-secondary" aria-label="Go to About">About</a>
+                    <a href="#services" class="footer-link nav-link btn btn-secondary" aria-label="Go to Services">Services</a>
+                    <a href="#contact" class="footer-link nav-link btn btn-secondary" aria-label="Go to Contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-right">
+                <h3>GDG USTO-MB</h3>
+                <p>Google Developer Group On Campus</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 GDG USTO-MB</p>
+        </div>
+    </footer>
+
+    <!-- Floating navigation (right side quick links) -->
+    <nav class="floating-nav" aria-label="Floating navigation">
+        <a href="#home" class="float-btn" title="Home">
+            <i class="fas fa-home" aria-hidden="true"></i>
+            <span class="float-label">Home</span>
+        </a>
+        <a href="#about" class="float-btn" title="About">
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+            <span class="float-label">About</span>
+        </a>
+        <a href="#services" class="float-btn" title="Services">
+            <i class="fas fa-cogs" aria-hidden="true"></i>
+            <span class="float-label">Services</span>
+        </a>
+        <a href="#contact" class="float-btn" title="Contact">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <span class="float-label">Contact</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
